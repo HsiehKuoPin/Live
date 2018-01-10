@@ -1,0 +1,105 @@
+apply plugin: 'com.android.application'
+ext {
+    APP_OUTPUT_PATH = ""
+    RELEASE_APP_DIR = ""
+    DEBUG_APP_DIR = ""
+    RELEASE_FILE_SUFFIX = ""
+    DEBUG_FILE_SUFFIX = ""
+
+    KEYSTORE_FILE = ""
+    KEYSTORE_ALIAS = ""
+    KEYSTORE_PSW = ""
+}
+
+def loadProperties() {
+    def appProFile = file('app.properties')
+    Properties appProperties = new Properties()
+    appProFile.withInputStream { stream -> appProperties.load(stream) }
+
+    KEYSTORE_FILE = appProperties.KEYSTORE_FILE
+    KEYSTORE_ALIAS = appProperties.KEYSTORE_ALIAS
+    KEYSTORE_PSW = appProperties.KEYSTORE_PSW
+
+    APP_OUTPUT_PATH = appProperties.APP_OUTPUT_PATH
+    RELEASE_APP_DIR = appProperties.RELEASE_APP_DIR
+    DEBUG_APP_DIR = appProperties.DEBUG_APP_DIR
+    RELEASE_FILE_SUFFIX = appProperties.RELEASE_FILE_SUFFIX
+    DEBUG_FILE_SUFFIX = appProperties.DEBUG_FILE_SUFFIX
+}
+loadProperties()
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.live.gblive"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+    buildTypes {
+        release {
+            buildConfigField("String", "API_HOST", "\"http://www.quanmin.tv/\"")
+            manifestPlaceholders = [APP_NAME: "GBLive"]
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug.initWith(buildTypes.release)
+        debug {
+            debuggable true
+            manifestPlaceholders = [APP_NAME: "GBLiveTest"]
+        }
+    }
+
+    signingConfigs {
+        release {//发布版本的签名配置
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PSW
+            storeFile file(KEYSTORE_FILE)
+            storePassword KEYSTORE_PSW
+        }
+        debug.initWith(release)
+        debug {}
+    }
+
+    //打包后应用名称
+    applicationVariants.all { variant ->
+        variant.outputs.all  { output ->
+
+            def outputFile = output.outputFile
+            def fileName
+            def apkFolder
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {
+                    apkFolder = APP_OUTPUT_PATH + RELEASE_APP_DIR
+                    fileName = defaultConfig.applicationId + RELEASE_FILE_SUFFIX + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
+                } else {
+                    apkFolder = APP_OUTPUT_PATH + DEBUG_APP_DIR
+                    fileName = defaultConfig.applicationId + DEBUG_FILE_SUFFIX + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
+                }
+
+                File file = new File(apkFolder)
+                if (!file.exists()) {
+                    file.mkdirs()
+                }
+                outputFileName = new File(apkFolder, fileName)
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.github.Leekajun:LeeorzLib:1.1.12'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'net.grandcentrix.tray:tray:0.12.0'
+    implementation 'com.android.support:design:26.1.0'
+}
