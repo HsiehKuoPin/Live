@@ -9,5 +9,5 @@ import com.live.gblive.BuildConfig;
  * description:
  */
 public class Constants {
-    public static String API = BuildConfig.API_HOST + "/app_1_1/";
+    public static String API = BuildConfig.API_HOST;
 }
