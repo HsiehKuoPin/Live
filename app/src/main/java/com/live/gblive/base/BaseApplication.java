@@ -2,6 +2,7 @@ package com.live.gblive.base;
 
 import android.app.Application;
 import android.content.Context;
+import com.leeorz.lib.api.ApiConfig;
 
 /**
  * author: xguobin
@@ -20,5 +21,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         applicationContext = this;
+        ApiConfig.init(Constants.API);
     }
 }
