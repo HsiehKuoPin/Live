@@ -71,7 +71,7 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
     }
 
     @Override
-    public void onGetLiveCategorySuccess(List<LiveCategory> list) {
+    public void getLiveCategorySuccess(List<LiveCategory> list) {
         if(list!=null){
             toSetList(listCategory,list,false);
             listFragment.clear();
@@ -101,7 +101,7 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
     }
 
     @Override
-    public void onGetLiveCategoryFail(String message) {
+    public void getLiveCategoryFail(String message) {
         AppMsgUtil.showFail(getActivity(), message);
     }
 }

@@ -27,12 +27,12 @@ public class HomePresenter extends BasePresenter<HomeContract.View,HomeModel> im
     @Override
     public void onGetLiveCategorySuccess(List<LiveCategory> list) {
         if (getIView() ==null)return;
-        getIView().onGetLiveCategorySuccess(list);
+        getIView().getLiveCategorySuccess(list);
     }
 
     @Override
     public void onGetLiveCategoryFail(String message) {
         if (getIView() ==null)return;
-        getIView().onGetLiveCategoryFail(message);
+        getIView().getLiveCategoryFail(message);
     }
 }

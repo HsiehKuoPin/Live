@@ -2,7 +2,7 @@ package com.live.gblive.contract;
 
 import com.leeorz.lib.base.BaseRequestListener;
 import com.leeorz.lib.base.BaseView;
-import com.live.gblive.model.bean.LiveCategory;
+import com.live.gblive.model.bean.RecommendSection;
 
 import java.util.List;
 
@@ -12,24 +12,24 @@ import java.util.List;
  * created on: 2018/1/11 14:39
  * description:
  */
-public interface HomeContract {
+public interface RecommendContract {
 
     interface View extends BaseView {
-        void getLiveCategorySuccess(List<LiveCategory> list);
-        void getLiveCategoryFail(String message);
+        void getRecommendSuccess(List<RecommendSection> recommendSectionList);
+        void getRecommendFail(String message);
     }
 
 
     interface Presenter {
-        void loadAllCategories();
+        void getRecommend();
     }
 
     interface Model {
-        void loadAllCategories(OnRequestListener listener);
+        void loadRecommend(OnRequestListener listener);
     }
 
     interface OnRequestListener extends BaseRequestListener {
-        void onGetLiveCategorySuccess(List<LiveCategory> list);
-        void onGetLiveCategoryFail(String message);
+        void onRecommendSuccess(List<RecommendSection> recommendSectionList);
+        void onRecommendFail(String message);
     }
 }

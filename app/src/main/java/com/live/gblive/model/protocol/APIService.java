@@ -1,6 +1,8 @@
 package com.live.gblive.model.protocol;
 
+import com.live.gblive.model.bean.AppStart;
 import com.live.gblive.model.bean.LiveCategory;
+import com.live.gblive.model.bean.Recommend;
 
 import java.util.List;
 
@@ -18,8 +20,8 @@ public interface APIService {
      * 获取App启动页信息
      * @return
      */
-//    @GET("json/page/app-data/info.json?v=3.0.1&os=1&ver=4")
-//    Observable<AppStart> getAppStartInfo();
+    @GET("json/page/app-data/info.json?v=3.0.1&os=1&ver=4")
+    Observable<AppStart> getAppStartInfo();
 
     /**
      * 获取分类列表
@@ -34,8 +36,8 @@ public interface APIService {
      * 获取推荐列表
      * @return
      */
-//    @GET("json/app/index/recommend/list-android.json?v=3.0.1&os=1&ver=4")
-//    Observable<Recommend> getRecommend();
+    @GET("json/app/index/recommend/list-android.json?v=3.0.1&os=1&ver=4")
+    Observable<Recommend> getRecommend();
 
     /**
      * 获取直播列表

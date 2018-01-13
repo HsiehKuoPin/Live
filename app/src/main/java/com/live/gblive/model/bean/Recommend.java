@@ -2,6 +2,7 @@ package com.live.gblive.model.bean;
 
 import com.live.gblive.utils.DecimalFormatUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -588,5 +589,16 @@ public class Recommend{
                 "room=" + room +
                 ", ad=" + ad +
                 '}';
+    }
+
+    public List<RecommendSection> getSampleData() {
+        List<RecommendSection> recommendSectionList = new ArrayList<>();
+        for (Recommend.RoomBean roomBean : room) {
+            recommendSectionList.add(new RecommendSection(true, roomBean.getName(), roomBean.getIcon()));
+            for (Recommend.RoomBean.ListBean listBean : roomBean.getList()) {
+                recommendSectionList.add(new RecommendSection(listBean));
+            }
+        }
+        return recommendSectionList;
     }
 }
