@@ -13,6 +13,15 @@ public class LogUtil {
 
     private static final String TAG = "gblive";
 
+    private static int logId = 0;
+    /** 为了方便查看，在打印的日志信息内容前添加一个序号前缀 */
+    private static String getLogPrefix() {
+        logId++;
+        if (logId >= 1000)
+            logId = 1;
+        return "(" + logId + "). ";
+    }
+
     /** 在控制台打印信息 */
     public static void i(String msg) {
         i(TAG, msg);
@@ -64,13 +73,5 @@ public class LogUtil {
             Log.e(tag, mess);
     }
 
-    private static int logId = 0;
-    /** 为了方便查看，在打印的日志信息内容前添加一个序号前缀 */
-    private static String getLogPrefix() {
-        logId++;
-        if (logId >= 1000)
-            logId = 1;
-        return "(" + logId + "). ";
-    }
 
 }

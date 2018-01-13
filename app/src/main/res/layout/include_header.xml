@@ -10,6 +10,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:padding="15dp"
+        android:visibility="gone"
         android:scaleType="centerInside"
         android:src="@drawable/ic_back"/>
 

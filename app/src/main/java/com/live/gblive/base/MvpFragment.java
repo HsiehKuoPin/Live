@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import com.leeorz.lib.base.BaseFragment;
 import com.leeorz.lib.base.BasePresenter;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -53,5 +55,17 @@ public abstract class MvpFragment<P extends BasePresenter> extends BaseFragment 
 
     public void initData() {
 
+    }
+
+    public <T> void  toSetList(List<T> list, List<T> newList, boolean isMore){
+
+        if(list!=null && newList!=null){
+            synchronized (BaseFragment.class){
+                if(!isMore){
+                    list.clear();
+                }
+                list.addAll(newList);
+            }
+        }
     }
 }

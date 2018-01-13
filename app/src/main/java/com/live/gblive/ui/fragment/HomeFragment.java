@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
 import com.live.gblive.contract.HomeContract;
@@ -14,7 +12,6 @@ import com.live.gblive.model.bean.LiveCategory;
 import com.live.gblive.presenter.HomePresenter;
 import com.live.gblive.ui.adapter.ViewPagerFragmentAdapter;
 import com.live.gblive.utils.AppMsgUtil;
-import com.live.gblive.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +26,6 @@ import butterknife.BindView;
  */
 public class HomeFragment extends MvpFragment<HomePresenter> implements HomeContract.View {
 
-    @BindView(R.id.tv_title)
-    TextView mTvTitle;
     @BindView(R.id.tabLayout)
     TabLayout mTabLayout;
     @BindView(R.id.viewPager)
@@ -59,7 +54,6 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
 
     @Override
     public void initView() {
-        mTvTitle.setText("标题");
         listCategory = new ArrayList<>();
         listTitle = new ArrayList<>();
         listFragment = new ArrayList<>();
@@ -78,7 +72,32 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
 
     @Override
     public void onGetLiveCategorySuccess(List<LiveCategory> list) {
-        LogUtil.e(""+ JSON.toJSONString(list.get(0)));
+        if(list!=null){
+            toSetList(listCategory,list,false);
+            listFragment.clear();
+            List<CharSequence> listTemp = new ArrayList<>();
+
+            //----------------------
+            listTemp.add(getText(R.string.recommend));
+            listFragment.add(RecommendFragment.newInstance());
+            listTemp.add(getText(R.string.tab_all));
+            listFragment.add(LiveListFragment.newInstance(null));
+            //----------------------
+            for (int i = 0; i < list.size(); i++) {
+                LiveCategory liveCategory = list.get(i);
+
+                listTemp.add(liveCategory.getName());
+                listFragment.add(LiveListFragment.newInstance(liveCategory.getSlug()));
+            }
+            toSetList(listTitle,listTemp,false);
+
+        }
+
+        if(viewPagerFragmentAdapter!=null){
+            viewPagerFragmentAdapter.setListTitle(listTitle);
+            viewPagerFragmentAdapter.setListFragment(listFragment);
+            viewPagerFragmentAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
