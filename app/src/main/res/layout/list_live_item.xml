@@ -3,8 +3,9 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:background="?android:attr/selectableItemBackground">
+                android:paddingHorizontal="5dp"
+                android:background="@color/white">
+    <!--android:background="?android:attr/selectableItemBackground"-->
     <ImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"

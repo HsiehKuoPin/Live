@@ -9,6 +9,8 @@ import com.leeorz.lib.base.BasePresenter;
 import com.live.gblive.R;
 import com.live.gblive.utils.StatusBarCompat;
 
+import butterknife.ButterKnife;
+
 /**
  * author: xguobin
  * email:xguobin12@163.com
@@ -25,6 +27,7 @@ public abstract class MvpActivity<P extends BasePresenter> extends BaseActivity 
         mContext = this;
         setContentView(getRootViewId());
         StatusBarCompat.compat(this,getResources().getColor(R.color.colorPrimaryDark));
+        ButterKnife.bind(this);
         initView();
         initData();
     }

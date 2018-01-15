@@ -2,6 +2,7 @@ package com.live.gblive.model;
 
 import com.leeorz.lib.api.ApiManager;
 import com.live.gblive.contract.RecommendContract;
+import com.live.gblive.model.bean.AppStart;
 import com.live.gblive.model.bean.Recommend;
 import com.live.gblive.model.protocol.BaseProtocol;
 import com.live.gblive.model.protocol.MObserver;
@@ -31,6 +32,24 @@ public class RecommendModel extends BaseProtocol implements RecommendContract.Mo
                     @Override
                     public void onFail(Throwable e) {
                         listener.onRecommendFail(e.getMessage());
+                    }
+                }));
+    }
+
+    @Override
+    public void loadAppStartInfo(final RecommendContract.OnRequestListener listener) {
+        ApiManager.getInstance().add(this,mAPIService.getAppStartInfo())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new MObserver(new MObserver.ApiCallback<AppStart>() {
+                    @Override
+                    public void onSuccess(AppStart value) {
+                        listener.onAppStartInfoSuccess(value.getBanners());
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+                        listener.onAppStartInfoFail(e.getMessage());
                     }
                 }));
     }

@@ -9,5 +9,7 @@
     <string name="tab_all">全部</string>
     <string name="recommend_more">更多</string>
     <string name="islive">正在直播</string>
+    <string name="qm_account">全民号 %1$s</string>
+    <string name="fans_num">粉丝 %1$d</string>
 
 </resources>

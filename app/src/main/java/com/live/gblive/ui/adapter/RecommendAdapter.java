@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.live.gblive.R;
 import com.live.gblive.model.bean.Recommend;
 import com.live.gblive.model.bean.RecommendSection;
-import com.squareup.picasso.Picasso;
+import com.live.gblive.utils.XPicasso;
 
 import java.util.List;
 
@@ -33,20 +33,15 @@ public class RecommendAdapter extends BaseSectionQuickAdapter<RecommendSection, 
 
     @Override
     protected void convertHead(BaseViewHolder holder, RecommendSection item) {
-        holder.setText(R.id.tvCategroy, item.header);
-        Picasso.with(mContext)
-                .load(R.mipmap.live_default)
-                .into((ImageView) holder.getView(R.id.iv_header));
-        holder.addOnClickListener(R.id.tvMore);
+        holder.setText(R.id.tvCategroy, item.header)
+                .addOnClickListener(R.id.tvMore);
+        XPicasso.load(mContext,item.icon).into((ImageView) holder.getView(R.id.iv_header));
     }
 
     @Override
     protected void convert(BaseViewHolder holder, RecommendSection item) {
         Recommend.RoomBean.ListBean data = item.t;
-        Picasso.with(mContext)
-                .load(data.getThumb())
-                .into((ImageView) holder.getView(R.id.iv));
-
+        XPicasso.load(mContext,data.getThumb()).into((ImageView) holder.getView(R.id.iv));
         holder.setText(R.id.tvTitle,data.getTitle());
         holder.setText(R.id.tvName,data.getNick());
         holder.setText(R.id.tvViewer,data.getViews());

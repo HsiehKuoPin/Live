@@ -3,11 +3,13 @@ package com.live.gblive.model.protocol;
 import com.live.gblive.model.bean.AppStart;
 import com.live.gblive.model.bean.LiveCategory;
 import com.live.gblive.model.bean.Recommend;
+import com.live.gblive.model.bean.Room;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * author: xguobin
@@ -55,8 +57,8 @@ public interface APIService {
      * @param uid
      * @return
      */
-//    @GET("json/rooms/{uid}/info.json?v=3.0.1&os=1&ver=4")
-//    Observable<Room> enterRoom(@Path("uid")String uid);
+    @GET("json/rooms/{uid}/info.json?v=3.0.1&os=1&ver=4")
+    Observable<Room> enterRoom(@Path("uid")String uid);
 
     /**
      * 搜索
