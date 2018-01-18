@@ -9,6 +9,7 @@ import com.live.gblive.R;
 import com.live.gblive.base.Constants;
 import com.live.gblive.base.MvpActivity;
 import com.live.gblive.ui.fragment.FullRoomFragment;
+import com.live.gblive.ui.fragment.RoomFragment;
 import com.live.gblive.utils.LogUtil;
 
 import butterknife.BindView;
@@ -38,7 +39,7 @@ public class ContentActivity extends MvpActivity {
         int fragmentKey = intent.getIntExtra(Constants.KEY_FRAGMENT,0);
         switch (fragmentKey){
             case Constants.ROOM_FRAGMENT:
-//                replaceFragment(RoomFragment.newInstance(intent.getStringExtra(Constants.KEY_UID)));
+                replaceFragment(RoomFragment.newInstance(intent.getStringExtra(Constants.KEY_UID)));
                 break;
             case Constants.LIVE_FRAGMENT: {
                 String title = intent.getStringExtra(Constants.KEY_TITLE);

@@ -17,4 +17,10 @@
     <color name="darkgray">#A9A9A9</color>
     <color name="mine_follower_bg">#1f000000</color>
     <color name="white_transparent">#7fffffff</color>
+    <color name="default_bg_color">#f0f0f0</color>
+
+    <color name="room_table_text_color">#808080</color>
+    <color name="room_lable_title_color">#333333</color>
+    <color name="room_lable_color">#999999</color>
+    <color name="room_lable_content_color">#666666</color>
 </resources>

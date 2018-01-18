@@ -1,8 +1,8 @@
 package com.live.gblive.presenter;
 
 import com.leeorz.lib.base.BasePresenter;
-import com.live.gblive.contract.FullRoomContract;
-import com.live.gblive.model.FullRoomModel;
+import com.live.gblive.contract.RoomContract;
+import com.live.gblive.model.RoomModel;
 import com.live.gblive.model.bean.Room;
 
 /**
@@ -11,8 +11,8 @@ import com.live.gblive.model.bean.Room;
  * created on: 2018/1/15 16:42
  * description:
  */
-public class FullRoomPresenter extends BasePresenter<FullRoomContract.View,FullRoomModel> implements FullRoomContract.Presenter, FullRoomContract.OnRequestListener {
-    public FullRoomPresenter(FullRoomContract.View view) {
+public class RoomPresenter extends BasePresenter<RoomContract.View,RoomModel> implements RoomContract.Presenter, RoomContract.OnRequestListener {
+    public RoomPresenter(RoomContract.View view) {
         super(view);
     }
 
@@ -32,5 +32,11 @@ public class FullRoomPresenter extends BasePresenter<FullRoomContract.View,FullR
     public void onGetRoomFail(String message) {
         if (getIView() ==null)return;
         getIView().getRoomFail(message);
+    }
+
+    @Override
+    public void playUrl(String url) {
+        if (getIView() ==null)return;
+        getIView().playUrl(url);
     }
 }

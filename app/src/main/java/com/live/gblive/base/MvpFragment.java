@@ -1,7 +1,9 @@
 package com.live.gblive.base;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +48,9 @@ public abstract class MvpFragment<P extends BasePresenter> extends BaseFragment 
             mPresenter.destroy();
         }
     }
-
+    public View getRootView(){
+        return rootView;
+    }
     public abstract int getRootViewId();
 
     public void initView() {
@@ -56,7 +60,13 @@ public abstract class MvpFragment<P extends BasePresenter> extends BaseFragment 
     public void initData() {
 
     }
+    public void replaceFragment(@IdRes int id, Fragment fragment) {
+        getFragmentManager().beginTransaction().replace(id, fragment).commit();
+    }
 
+    public void replaceChildFragment(@IdRes int id, Fragment fragment) {
+        getChildFragmentManager().beginTransaction().replace(id, fragment).commit();
+    }
     public <T> void  toSetList(List<T> list, List<T> newList, boolean isMore){
 
         if(list!=null && newList!=null){

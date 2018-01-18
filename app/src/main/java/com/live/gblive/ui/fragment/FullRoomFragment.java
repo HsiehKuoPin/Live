@@ -1,8 +1,6 @@
 package com.live.gblive.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,10 +10,10 @@ import android.widget.TextView;
 
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
-import com.live.gblive.contract.FullRoomContract;
+import com.live.gblive.contract.RoomContract;
 import com.live.gblive.model.bean.Room;
-import com.live.gblive.model.bean.RoomLine;
-import com.live.gblive.presenter.FullRoomPresenter;
+import com.live.gblive.presenter.RoomPresenter;
+import com.live.gblive.utils.AppMsgUtil;
 import com.live.gblive.utils.XPicasso;
 
 import butterknife.BindView;
@@ -27,7 +25,7 @@ import butterknife.OnClick;
  * created on: 2018/1/15 14:41
  * description:
  */
-public class FullRoomFragment extends MvpFragment<FullRoomPresenter> implements FullRoomContract.View {
+public class FullRoomFragment extends MvpFragment<RoomPresenter> implements RoomContract.View {
     @BindView(R.id.rlAnchorInfo)
     View rlAnchorInfo;
     @BindView(R.id.civAvatar)
@@ -91,7 +89,7 @@ public class FullRoomFragment extends MvpFragment<FullRoomPresenter> implements 
     public void initView() {
         tvAccount.setText(String.format(getString(R.string.qm_account), uid));
         XPicasso.load(getActivity(), coverUrl).into(ivCover);
-        mPresenter = new FullRoomPresenter(this);
+        mPresenter = new RoomPresenter(this);
     }
 
     @Override
@@ -106,26 +104,15 @@ public class FullRoomFragment extends MvpFragment<FullRoomPresenter> implements 
             tvName.setText(room.getNick());
             tvFans.setText(String.format(getString(R.string.fans_num), room.getFollow()));
             XPicasso.load(getActivity(), room.getAvatar()).into(civAvatar);
-
-            String url = null;
-//                            RoomLine roomLine = room.getRoom_lines().get(0);
-            RoomLine roomLine = room.getLive().getWs();
-
-            RoomLine.FlvBean flv = roomLine.getFlv();
-            if (flv != null) {
-                url = flv.getValue(false).getSrc();
-            } else {
-                url = roomLine.getHls().getValue(false).getSrc();
-            }
-            playUrl(url);
         }
     }
 
     @Override
     public void getRoomFail(String message) {
-
+        AppMsgUtil.showFail(getActivity(),message);
     }
 
+    @Override
     public void playUrl(String url) {
         if (videoFragment == null) {
             videoFragment = VideoFragment.newInstance(url, true);
@@ -133,9 +120,6 @@ public class FullRoomFragment extends MvpFragment<FullRoomPresenter> implements 
         replaceChildFragment(R.id.frameVideo, videoFragment);
     }
 
-    public void replaceChildFragment(@IdRes int id, Fragment fragment) {
-        getChildFragmentManager().beginTransaction().replace(id, fragment).commit();
-    }
 
     @OnClick({R.id.ivBack, R.id.ivGift, R.id.ivShare})
     public void onViewClicked(View view) {

@@ -10,11 +10,13 @@ import com.live.gblive.model.bean.Room;
  * created on: 2018/1/15 16:19
  * description:
  */
-public interface FullRoomContract {
+public interface RoomContract {
     interface View extends BaseView {
         void getRoomSuccess(Room room);
 
         void getRoomFail(String message);
+
+        void playUrl(String url);
     }
 
 
@@ -30,5 +32,7 @@ public interface FullRoomContract {
         void onGetRoomSuccess(Room room);
 
         void onGetRoomFail(String message);
+
+        void playUrl(String url);
     }
 }

@@ -37,7 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.ContentActivity"/>
+        <activity android:name=".ui.activity.ContentActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:windowSoftInputMode="stateHidden|stateUnchanged"/>
     </application>
 
 </manifest>

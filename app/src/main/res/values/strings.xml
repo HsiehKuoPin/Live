@@ -9,7 +9,30 @@
     <string name="tab_all">全部</string>
     <string name="recommend_more">更多</string>
     <string name="islive">正在直播</string>
+
+    <string name="account_">全民号：</string>
+    <string name="fans_">粉丝：</string>
+    <string name="zhandouli_">战斗力：</string>
+    <string name="l">|</string>
+    <string name="live_notice">直播公告</string>
+    <string name="start_live_time">开播时间</string>
+    <string name="personal_information">个人资料</string>
+    <string name="age">年龄</string>
+    <string name="emotional_state">情感状态</string>
+    <string name="location">所在地</string>
+    <string name="occupation">职业</string>
+    <string name="secrecy">保密</string>
+    <string name="outer_space">外太空</string>
     <string name="qm_account">全民号 %1$s</string>
     <string name="fans_num">粉丝 %1$d</string>
+
+    <!-- 房间内 -->
+    <string name="room_chat">聊天</string>
+    <string name="room_ranking">排行</string>
+    <string name="room_anchor">主播</string>
+    <string name="room_follow">关注</string>
+    <string name="hint_room_chat">和主播说点什么…</string>
+    <string name="tips_notice_desc">&#160;全民直播提倡绿色直播。封页和直播内容含吸烟，低俗，引诱，暴露等都将被封停账号。网警在线24小时巡查哦。</string>
+
 
 </resources>
