@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
@@ -30,6 +31,8 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
     TabLayout mTabLayout;
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
+    @BindView(R.id.tv_title)
+    TextView mTvTitle;
     private ViewPagerFragmentAdapter viewPagerFragmentAdapter;
 
     private List<LiveCategory> listCategory;
@@ -54,6 +57,7 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
 
     @Override
     public void initView() {
+        mTvTitle.setText("直播demo");
         listCategory = new ArrayList<>();
         listTitle = new ArrayList<>();
         listFragment = new ArrayList<>();

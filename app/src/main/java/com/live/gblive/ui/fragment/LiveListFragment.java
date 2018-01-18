@@ -1,10 +1,21 @@
 package com.live.gblive.ui.fragment;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
+import com.live.gblive.contract.LiveContract;
+import com.live.gblive.model.bean.LiveInfo;
+import com.live.gblive.presenter.LivePresenter;
+import com.live.gblive.ui.adapter.LiveAdapter;
+import com.live.gblive.utils.AppMsgUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -14,10 +25,13 @@ import butterknife.BindView;
  * created on: 2018/1/8 17:17
  * description:
  */
-public class LiveListFragment extends MvpFragment {
-    @BindView(R.id.tv_text)
-    TextView mTextView;
+public class LiveListFragment extends MvpFragment<LivePresenter> implements LiveContract.View {
+    @BindView(R.id.recyclerview)
+    RecyclerView mRecyclerView;
+
     private String slug;
+    private List<LiveInfo> mInfoList;
+    private LiveAdapter mLiveAdapter;
 
     public static LiveListFragment newInstance(String slug) {
         Bundle args = new Bundle();
@@ -34,12 +48,32 @@ public class LiveListFragment extends MvpFragment {
 
     @Override
     public void initView() {
-        mTextView.setText(this.getClass().getName()+":"+slug);
+        mPresenter = new LivePresenter(this);
+        mInfoList = new ArrayList<>();
+        mLiveAdapter = new LiveAdapter(R.layout.list_live_item,mInfoList);
+        mLiveAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startRoom(mInfoList.get(position));
+            }
+        });
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        mRecyclerView.setAdapter(mLiveAdapter);
     }
 
     @Override
     public void initData() {
-
+        mPresenter.loadSlugCategories(slug);
     }
 
+    @Override
+    public void getSlugCategoriesSuccess(List<LiveInfo> liveInfoList) {
+        toSetList(mInfoList,liveInfoList,false);
+        mLiveAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void getSlugCategoriesFail(String message) {
+        AppMsgUtil.showFail(mContext,message);
+    }
 }

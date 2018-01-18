@@ -2,13 +2,18 @@ package com.live.gblive.model.protocol;
 
 import com.live.gblive.model.bean.AppStart;
 import com.live.gblive.model.bean.LiveCategory;
+import com.live.gblive.model.bean.LiveListResult;
 import com.live.gblive.model.bean.Recommend;
 import com.live.gblive.model.bean.Room;
+import com.live.gblive.model.bean.SearchRequestBody;
+import com.live.gblive.model.bean.SearchResult;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -45,12 +50,12 @@ public interface APIService {
      * 获取直播列表
      * @return
      */
-//    @GET("json/play/list.json?v=3.0.1&os=1&ver=4")
-//    Observable<LiveListResult> getLiveListResult();
+    @GET("json/play/list.json?v=3.0.1&os=1&ver=4")
+    Observable<LiveListResult> getLiveListResult();
 
 
-//    @GET("json/categories/{slug}/list.json?v=3.0.1&os=1&ver=4")
-//    Observable<LiveListResult> getLiveListResultByCategories(@Path("slug") String slug);
+    @GET("json/categories/{slug}/list.json?v=3.0.1&os=1&ver=4")
+    Observable<LiveListResult> getSlugCategories(@Path("slug") String slug);
 
     /**
      * 进入房间
@@ -65,6 +70,6 @@ public interface APIService {
      * @param searchRequestBody
      * @return
      */
-//    @POST("site/search")
-//    Observable<SearchResult> search(@Body SearchRequestBody searchRequestBody);
+    @POST("site/search")
+    Observable<SearchResult> search(@Body SearchRequestBody searchRequestBody);
 }

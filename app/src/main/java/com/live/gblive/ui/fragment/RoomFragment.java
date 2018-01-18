@@ -114,6 +114,7 @@ public class RoomFragment extends MvpFragment<RoomPresenter> implements RoomCont
 
         viewPager.setAdapter(viewPagerFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        viewPager.setCurrentItem(2);
     }
 
     @Override
@@ -137,7 +138,7 @@ public class RoomFragment extends MvpFragment<RoomPresenter> implements RoomCont
     public void updateVideoLayoutParams(){
         ViewGroup.LayoutParams lp = videoContent.getLayoutParams();
         if(isLandscape()){
-            lp.height = DensityUtil.getDisplayMetrics(getActivity()).heightPixels;
+            lp.height = DensityUtil.getDisplayMetrics(getActivity()).heightPixels-25;
         }else{
             lp.height = (int)(DensityUtil.getDisplayMetrics(getActivity()).widthPixels / 16.0f * 9.0f);
         }

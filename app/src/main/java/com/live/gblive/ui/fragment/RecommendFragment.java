@@ -151,7 +151,14 @@ public class RecommendFragment extends MvpFragment<RecommendPresenter> implement
         convenientBanner.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                AppMsgUtil.show(getActivity(),listBanner.get(position).getThumb());
+                Banner banner = listBanner.get(position);
+                if(banner !=null){
+                    if(banner.isRoom()){//如果是房间类型就点击进入房间
+                        startRoom(banner.getLink_object());
+                    }else{//广告类型
+                        startWeb(banner.getTitle(),banner.getLink());
+                    }
+                }
             }
         });
 //        convenientBanner.setManualPageable(false);//设置不能手动影响

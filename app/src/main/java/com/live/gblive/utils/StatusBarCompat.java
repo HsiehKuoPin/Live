@@ -24,6 +24,7 @@ public class StatusBarCompat {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            //隐藏状态栏:WindowManager.LayoutParams.FLAG_FULLSCREEN
             activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
             int color = COLOR_DEFAULT;
