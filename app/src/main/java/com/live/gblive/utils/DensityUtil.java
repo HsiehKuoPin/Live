@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import java.lang.reflect.Field;
+
 /**
  * author: xguobin
  * email:xguobin12@163.com
@@ -67,4 +69,21 @@ public class DensityUtil {
         return context.getResources().getDisplayMetrics();
     }
 
+    /**
+     * 通过反射的方式获取状态栏高度，
+     * 一般为24dp，有些可能较特殊，所以需要反射动态获取
+     */
+    public static int getStatusBarHeight(Context context) {
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object obj = clazz.newInstance();
+            Field field = clazz.getField("status_bar_height");
+            int id = Integer.parseInt(field.get(obj).toString());
+            return context.getResources().getDimensionPixelSize(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("-------无法获取到状态栏高度");
+        }
+        return px2dp(context,24);
+    }
 }

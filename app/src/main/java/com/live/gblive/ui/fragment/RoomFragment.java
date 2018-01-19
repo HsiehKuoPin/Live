@@ -138,7 +138,7 @@ public class RoomFragment extends MvpFragment<RoomPresenter> implements RoomCont
     public void updateVideoLayoutParams(){
         ViewGroup.LayoutParams lp = videoContent.getLayoutParams();
         if(isLandscape()){
-            lp.height = DensityUtil.getDisplayMetrics(getActivity()).heightPixels-25;
+            lp.height = DensityUtil.getDisplayMetrics(getActivity()).heightPixels-DensityUtil.getStatusBarHeight(mContext);
         }else{
             lp.height = (int)(DensityUtil.getDisplayMetrics(getActivity()).widthPixels / 16.0f * 9.0f);
         }
