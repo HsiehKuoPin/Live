@@ -12,11 +12,11 @@ public class LogUtil {
     private static final boolean mDebug = true;
 
     private static final String TAG = "myLog";
-    public static final String I = "I";
-    public static final String D = "D";
-    public static final String W = "W";
-    public static final String V = "V";
-    public static final String E = "E";
+    private static final String I = "I";
+    private static final String D = "D";
+    private static final String W = "W";
+    private static final String V = "V";
+    private static final String E = "E";
 
     private static int logId = 0;
 
