@@ -11,10 +11,18 @@ import android.util.Log;
 public class LogUtil {
     private static final boolean mDebug = true;
 
-    private static final String TAG = "gblive";
+    private static final String TAG = "myLog";
+    public static final String I = "I";
+    public static final String D = "D";
+    public static final String W = "W";
+    public static final String V = "V";
+    public static final String E = "E";
 
     private static int logId = 0;
-    /** 为了方便查看，在打印的日志信息内容前添加一个序号前缀 */
+
+    /**
+     * 为了方便查看，在打印的日志信息内容前添加一个序号前缀
+     */
     private static String getLogPrefix() {
         logId++;
         if (logId >= 1000)
@@ -22,56 +30,49 @@ public class LogUtil {
         return "(" + logId + "). ";
     }
 
-    /** 在控制台打印信息 */
+    /**
+     * 在控制台打印信息
+     */
     public static void i(String msg) {
-        i(TAG, msg);
+        log(TAG, msg, I);
     }
 
     public static void d(String msg) {
-        d(TAG, msg);
+        log(TAG, msg, D);
     }
 
     public static void w(String msg) {
-        w(TAG, msg);
+        log(TAG, msg, W);
     }
 
     public static void v(String msg) {
-        v(TAG, msg);
+        log(TAG, msg, V);
     }
 
     public static void e(String msg) {
-        e(TAG, msg);
+        log(TAG, msg, E);
     }
 
-    public static void i(String tag, String msg) {
-        String mess = getLogPrefix() + msg;
-        if (mDebug)
-            Log.i(tag, mess);
+    public static void log(String tag, String mess, String type) {
+        if (!mDebug) return;
+        String msg = getLogPrefix() + mess;
+        switch (type) {
+            case I:
+                Log.i(tag, msg);
+                break;
+            case D:
+                Log.d(tag, msg);
+                break;
+            case W:
+                Log.w(tag, msg);
+                break;
+            case V:
+                Log.v(tag, msg);
+                break;
+            case E:
+                Log.e(tag, msg);
+                break;
+        }
+
     }
-
-    public static void d(String tag, String msg) {
-        String mess = getLogPrefix() + msg;
-        if (mDebug)
-            Log.d(tag, mess);
-    }
-
-    public static void w(String tag, String msg) {
-        String mess = getLogPrefix() + msg;
-        if (mDebug)
-            Log.w(tag, mess);
-    }
-
-    public static void v(String tag, String msg) {
-        String mess = getLogPrefix() + msg;
-        if (mDebug)
-            Log.v(tag, mess);
-    }
-
-    public static void e(String tag, String msg) {
-        String mess = getLogPrefix() + msg;
-        if (mDebug)
-            Log.e(tag, mess);
-    }
-
-
 }
