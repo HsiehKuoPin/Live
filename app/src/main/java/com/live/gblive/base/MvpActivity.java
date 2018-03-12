@@ -8,6 +8,7 @@ import com.leeorz.lib.base.BaseActivity;
 import com.leeorz.lib.base.BasePresenter;
 import com.live.gblive.R;
 import com.live.gblive.utils.StatusBarCompat;
+import com.umeng.message.PushAgent;
 
 import butterknife.ButterKnife;
 
@@ -30,6 +31,7 @@ public abstract class MvpActivity<P extends BasePresenter> extends BaseActivity 
         ButterKnife.bind(this);
         initView();
         initData();
+        PushAgent.getInstance(this).onAppStart();
     }
 
     @Override

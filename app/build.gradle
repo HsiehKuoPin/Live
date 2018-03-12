@@ -108,4 +108,5 @@ dependencies {
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
     compile 'de.hdodenhof:circleimageview:2.2.0'
+    implementation project(':push')
 }
