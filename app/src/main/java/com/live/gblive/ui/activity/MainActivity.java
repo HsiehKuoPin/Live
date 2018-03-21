@@ -47,7 +47,7 @@ public class MainActivity extends MvpActivity {
 
     @Override
     public void initView() {
-        showFragment(getHomeFragment());
+        showFragment(getLiveFragment());
     }
 
     @OnClick({R.id.rbHome, R.id.rbLive, R.id.rbFollow, R.id.rbMe})

@@ -19,10 +19,11 @@
     <include layout="@layout/include_divider_line"/>
 
     <RadioGroup
+        android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:checkedButton="@+id/rbHome"
+        android:checkedButton="@+id/rbLive"
         android:orientation="horizontal">
 
         <RadioButton

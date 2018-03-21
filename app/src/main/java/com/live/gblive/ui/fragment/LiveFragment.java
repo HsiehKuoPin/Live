@@ -23,11 +23,12 @@ public class LiveFragment extends MvpFragment {
     }
     @Override
     public int getRootViewId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_live;
     }
 
     @Override
     public void initView() {
+
     }
 
     @Override
