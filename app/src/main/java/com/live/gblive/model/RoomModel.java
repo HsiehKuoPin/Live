@@ -1,6 +1,6 @@
 package com.live.gblive.model;
 
-import com.leeorz.lib.api.ApiManager;
+import com.benjamin.api.ApiManager;
 import com.live.gblive.contract.RoomContract;
 import com.live.gblive.model.bean.Room;
 import com.live.gblive.model.bean.RoomLine;

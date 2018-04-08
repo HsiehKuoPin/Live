@@ -1,7 +1,7 @@
 package com.live.gblive.contract;
 
-import com.leeorz.lib.base.BaseRequestListener;
-import com.leeorz.lib.base.BaseView;
+import com.benjamin.base.BaseRequestListener;
+import com.benjamin.base.BaseView;
 import com.live.gblive.model.bean.Banner;
 import com.live.gblive.model.bean.RecommendSection;
 

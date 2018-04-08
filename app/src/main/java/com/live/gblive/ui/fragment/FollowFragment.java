@@ -23,7 +23,7 @@ public class FollowFragment extends MvpFragment {
     }
     @Override
     public int getRootViewId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_follow;
     }
 
     @Override

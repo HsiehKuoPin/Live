@@ -1,7 +1,8 @@
 package com.live.gblive.model.protocol;
 
-import com.leeorz.lib.api.API;
-import com.leeorz.lib.base.BaseModel;
+
+import com.benjamin.api.API;
+import com.benjamin.base.BaseModel;
 
 /**
  * author: xguobin

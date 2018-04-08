@@ -1,6 +1,6 @@
 package com.live.gblive.model;
 
-import com.leeorz.lib.api.ApiManager;
+import com.benjamin.api.ApiManager;
 import com.live.gblive.contract.HomeContract;
 import com.live.gblive.model.bean.LiveCategory;
 import com.live.gblive.model.protocol.BaseProtocol;

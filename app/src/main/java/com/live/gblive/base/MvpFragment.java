@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leeorz.lib.base.BaseFragment;
-import com.leeorz.lib.base.BasePresenter;
+import com.benjamin.base.BaseFragment;
+import com.benjamin.base.BasePresenter;
 import com.live.gblive.model.bean.LiveInfo;
 import com.live.gblive.ui.activity.ContentActivity;
 

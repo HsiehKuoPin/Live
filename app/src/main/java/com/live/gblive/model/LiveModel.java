@@ -2,7 +2,7 @@ package com.live.gblive.model;
 
 import android.text.TextUtils;
 
-import com.leeorz.lib.api.ApiManager;
+import com.benjamin.api.ApiManager;
 import com.live.gblive.contract.LiveContract;
 import com.live.gblive.model.bean.LiveListResult;
 import com.live.gblive.model.protocol.BaseProtocol;

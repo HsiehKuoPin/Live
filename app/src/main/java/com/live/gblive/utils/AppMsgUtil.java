@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.leeorz.lib.app.AppConfig;
+import com.benjamin.app.AppConfig;
 import com.live.gblive.R;
 
 

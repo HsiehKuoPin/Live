@@ -6,7 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
-import com.leeorz.lib.utils.ToastUtil;
+import com.benjamin.app.Global;
+import com.benjamin.utils.ToastUtil;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpActivity;
 import com.live.gblive.ui.fragment.FollowFragment;
@@ -47,7 +48,7 @@ public class MainActivity extends MvpActivity {
 
     @Override
     public void initView() {
-        showFragment(getLiveFragment());
+        showFragment(getFollowFragment());
     }
 
     @OnClick({R.id.rbHome, R.id.rbLive, R.id.rbFollow, R.id.rbMe})
@@ -68,12 +69,20 @@ public class MainActivity extends MvpActivity {
         }
     }
 
+    public void click1(View view) {
+        ToastUtil.showShort(this, "tv1");
+    }
     public void showFragment(Fragment fragment) {
+        if (fragment.isVisible())return;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         hideAllFragment(fragmentTransaction);
         if (fragment.isAdded()) {
+            Global.showToast("isAdded");
+//            Global.show("isAdded");
             fragmentTransaction.show(fragment).commit();
         } else {
+            Global.showToast("else");
+//            Global.showFail("else");
             fragmentTransaction.add(R.id.fragmentContent, fragment).show(fragment).commit();
         }
     }

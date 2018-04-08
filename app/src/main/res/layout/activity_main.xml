@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:checkedButton="@+id/rbLive"
+        android:checkedButton="@+id/rbFollow"
         android:orientation="horizontal">
 
         <RadioButton

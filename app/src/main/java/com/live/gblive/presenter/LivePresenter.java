@@ -1,6 +1,6 @@
 package com.live.gblive.presenter;
 
-import com.leeorz.lib.base.BasePresenter;
+import com.benjamin.base.BasePresenter;
 import com.live.gblive.contract.LiveContract;
 import com.live.gblive.model.LiveModel;
 import com.live.gblive.model.bean.LiveInfo;

@@ -6,7 +6,8 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.leeorz.lib.api.ApiConfig;
+import com.benjamin.api.ApiConfig;
+import com.benjamin.app.Global;
 import com.live.gblive.utils.LogUtil;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
@@ -33,6 +34,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         applicationContext = this;
         ApiConfig.init(Constants.API);
+        Global.init(this);
 
         /**
          * 初始化common库

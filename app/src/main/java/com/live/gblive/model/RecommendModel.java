@@ -1,6 +1,6 @@
 package com.live.gblive.model;
 
-import com.leeorz.lib.api.ApiManager;
+import com.benjamin.api.ApiManager;
 import com.live.gblive.contract.RecommendContract;
 import com.live.gblive.model.bean.AppStart;
 import com.live.gblive.model.bean.Recommend;

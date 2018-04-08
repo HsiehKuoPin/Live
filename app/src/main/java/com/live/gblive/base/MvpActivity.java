@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.leeorz.lib.base.BaseActivity;
-import com.leeorz.lib.base.BasePresenter;
+import com.benjamin.base.BaseActivity;
+import com.benjamin.base.BasePresenter;
 import com.live.gblive.R;
 import com.live.gblive.utils.StatusBarCompat;
 import com.umeng.message.PushAgent;

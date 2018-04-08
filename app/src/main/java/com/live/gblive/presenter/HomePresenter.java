@@ -1,6 +1,6 @@
 package com.live.gblive.presenter;
 
-import com.leeorz.lib.base.BasePresenter;
+import com.benjamin.base.BasePresenter;
 import com.live.gblive.contract.HomeContract;
 import com.live.gblive.model.HomeModel;
 import com.live.gblive.model.bean.LiveCategory;

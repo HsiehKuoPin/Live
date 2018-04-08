@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Benjamin</string>
+
+    <attr format="reference" name="cropImageStyle"/>
+    <color name="colorAccent">#00FF00</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <declare-styleable name="CropImageView"><attr format="reference|color" name="highlightColor"/><attr format="boolean" name="showThirds"/><attr format="boolean" name="showCircle"/><attr name="showHandles">
+        <enum name="changing" value="0"/>
+        <enum name="always" value="1"/>
+        <enum name="never" value="2"/>
+    </attr></declare-styleable>
+    <declare-styleable name="NumberPicker"><attr format="color" name="normalTextColor"/><attr format="dimension" name="normalTextSize"/><attr format="color" name="selecredTextColor"/><attr format="dimension" name="selecredTextSize"/><attr format="dimension" name="unitHight"/><attr format="integer" name="itemNumber"/><attr format="color|reference" name="lineColor"/><attr format="dimension" name="maskHight"/><attr format="boolean" name="noEmpty"/><attr format="boolean" name="isEnable"/></declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="reference" name="pstsUnderlineColor"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="dimension" name="pstsTabPaddingTopBottom"/><attr format="dimension" name="pstsScrollOffset"/><attr format="reference" name="pstsTabBackground"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsTextAllCaps"/><attr format="reference" name="selectedTabTextColor"/><attr format="dimension" name="indicatorleftrightpad"/><attr format="dimension" name="iconWidth"/><attr format="dimension" name="iconHeigth"/></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <style name="ExchangeDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="BenjaminTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/windowAnimStyle</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
+    <style name="LoadingDialogTheme" parent="Theme.AppCompat.Dialog">
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowTranslucentNavigation">false</item>-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="windowAnimStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_none</item>
+        <item name="android:activityCloseEnterAnimation">@anim/anim_none</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_right_out</item>
+    </style>
+</resources>
