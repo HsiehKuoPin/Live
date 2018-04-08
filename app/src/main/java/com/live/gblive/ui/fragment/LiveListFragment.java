@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.benjamin.app.Global;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
@@ -12,7 +13,6 @@ import com.live.gblive.contract.LiveContract;
 import com.live.gblive.model.bean.LiveInfo;
 import com.live.gblive.presenter.LivePresenter;
 import com.live.gblive.ui.adapter.LiveAdapter;
-import com.live.gblive.utils.AppMsgUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +74,6 @@ public class LiveListFragment extends MvpFragment<LivePresenter> implements Live
 
     @Override
     public void getSlugCategoriesFail(String message) {
-        Global.showFail(mContext,message);
+        Global.showFail(message);
     }
 }

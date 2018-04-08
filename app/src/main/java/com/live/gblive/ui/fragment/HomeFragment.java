@@ -6,13 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
+import com.benjamin.app.Global;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
 import com.live.gblive.contract.HomeContract;
 import com.live.gblive.model.bean.LiveCategory;
 import com.live.gblive.presenter.HomePresenter;
 import com.live.gblive.ui.adapter.ViewPagerFragmentAdapter;
-import com.live.gblive.utils.AppMsgUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +106,6 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
 
     @Override
     public void getLiveCategoryFail(String message) {
-        Global.showFail(getActivity(), message);
+        Global.showFail(message);
     }
 }
