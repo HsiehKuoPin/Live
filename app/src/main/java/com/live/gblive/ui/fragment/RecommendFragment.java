@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.benjamin.app.Global;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
@@ -24,7 +25,6 @@ import com.live.gblive.model.bean.RecommendSection;
 import com.live.gblive.presenter.RecommendPresenter;
 import com.live.gblive.ui.activity.ContentActivity;
 import com.live.gblive.ui.adapter.RecommendAdapter;
-import com.live.gblive.utils.AppMsgUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ public class RecommendFragment extends MvpFragment<RecommendPresenter> implement
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 RecommendSection recommendSection = data.get(position);
-                AppMsgUtil.show(getActivity(), recommendSection.header+position);
+                Global.show(recommendSection.header+position);
             }
         });
         mRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -108,7 +108,7 @@ public class RecommendFragment extends MvpFragment<RecommendPresenter> implement
 
     @Override
     public void getRecommendFail(String message) {
-        AppMsgUtil.showFail(getActivity(),message);
+        Global.showFail(message);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class RecommendFragment extends MvpFragment<RecommendPresenter> implement
 
     @Override
     public void getAppStartInfoFail(String message) {
-        AppMsgUtil.showFail(getActivity(),message);
+        Global.showFail(message);
     }
 
     public void startRoom(Context context,Recommend.RoomBean.ListBean listBean){

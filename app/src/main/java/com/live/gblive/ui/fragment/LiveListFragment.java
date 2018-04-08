@@ -74,6 +74,6 @@ public class LiveListFragment extends MvpFragment<LivePresenter> implements Live
 
     @Override
     public void getSlugCategoriesFail(String message) {
-        AppMsgUtil.showFail(mContext,message);
+        Global.showFail(mContext,message);
     }
 }

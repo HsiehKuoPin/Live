@@ -106,6 +106,6 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeCont
 
     @Override
     public void getLiveCategoryFail(String message) {
-        AppMsgUtil.showFail(getActivity(), message);
+        Global.showFail(getActivity(), message);
     }
 }

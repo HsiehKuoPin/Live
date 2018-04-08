@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.benjamin.app.Global;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpFragment;
 import com.live.gblive.contract.RoomContract;
 import com.live.gblive.model.bean.Room;
 import com.live.gblive.presenter.RoomPresenter;
-import com.live.gblive.utils.AppMsgUtil;
 import com.live.gblive.utils.XPicasso;
 
 import butterknife.BindView;
@@ -109,7 +109,7 @@ public class FullRoomFragment extends MvpFragment<RoomPresenter> implements Room
 
     @Override
     public void getRoomFail(String message) {
-        AppMsgUtil.showFail(getActivity(),message);
+        Global.showFail(message);
     }
 
     @Override
