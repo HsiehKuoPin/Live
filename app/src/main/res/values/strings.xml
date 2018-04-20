@@ -37,4 +37,93 @@
     <string name="_lease_open_permissions">Please open permissions</string>
 
 
+    <string name="empty"></string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="clear_empty">清空</string>
+    <string name="iknow">知道了</string>
+    <string name="open">开启</string>
+    <string name="close">关闭</string>
+
+    <!--RTS白板-->
+    <string name="start_session">正在邀请对方，请稍后</string>
+    <string name="callee_reject">对方拒绝了本次请求</string>
+    <string name="callee_ack_timeout">对方未接受请求</string>
+    <string name="receive_session">对方发起白板演示</string>
+    <string name="start_session_record">我发起了白板演示</string>
+    <string name="session_end_record">白板演示已结束</string>
+    <string name="end_session_tip_head">退出白板演示</string>
+    <string name="end_session_tip_content">退出后，你将不再接收白板演示的消息内容</string>
+    <string name="target_has_end_session">对方结束白板演示</string>
+    <string name="accept_session">接受</string>
+    <string name="reject_session">拒绝</string>
+    <string name="doodle_back">上一步</string>
+    <string name="doodle_clear">清屏</string>
+
+    <!-- session -->
+    <string name="input_panel_guess">猜 拳</string>
+    <string name="input_panel_audio_call">语音通话</string>
+    <string name="input_panel_video_call">视频通话</string>
+    <string name="input_panel_file">发送文件</string>
+    <string name="input_panel_RTS">白 板</string>
+    <string name="input_panel_snapchat">阅后即焚</string>
+    <string name="input_panel_tip">Tip</string>
+    <string name="input_panel_ack_msg">已读回执</string>
+    <string name="message_history_query">云消息记录</string>
+    <string name="message_search_title">搜索本地消息记录</string>
+    <string name="message_clear">清空本地消息记录</string>
+    <string name="message_info">聊天信息</string>
+
+    <!-- video call -->
+    <string name="avchat_hangup">结束通话</string>
+    <string name="avchat_switch_to_video">切换视频</string>
+    <string name="avchat_switch_to_audio">切换语音</string>
+    <string name="avchat_video_call_request">请求视频聊天…</string>
+    <string name="avchat_audio_call_wifi_unavailable_tip">当前非WiFi环境，每分钟将产生约0.5M的流量</string>
+    <string name="avchat_network_grade_0">网络通畅：</string>
+    <string name="avchat_network_grade_1">网络正常：</string>
+    <string name="avchat_network_grade_2">网络一般：</string>
+    <string name="avchat_network_grade_3">网络较差：</string>
+    <string name="avchat_refuse">拒绝</string>
+    <string name="avchat_receive">开启</string>
+    <string name="avchat_pickup">接听</string>
+    <string name="avchat_net_error_then_quit">网络异常，通话结束</string>
+    <string name="avchat_call_finish">通话结束</string>
+    <string name="avchat_call_reject">被对方拒绝</string>
+    <string name="avchat_peer_protocol_low_version">对方版本过低，请提示对方升级</string>
+    <string name="avchat_local_protocol_low_version">版本过低，请升级后使用</string>
+    <string name="avchat_invalid_channel_id">对方已挂断</string>
+    <string name="avchat_local_call_busy">本地通话中，无法使用易信进行通话。</string>
+    <string name="avchat_peer_busy">对方正在通话中，请稍后再拨。</string>
+    <string name="avchat_wait_recieve">等待对方接听…</string>
+    <string name="avchat_audio_call_request">请求通话</string>
+    <string name="avchat_connecting">连接中…</string>
+    <string name="avchat_audio_to_video_invitation">对方邀请你开启视频聊天…</string>
+    <string name="avchat_network_unstable_notificaton">当前网络不稳定</string>
+    <string name="avchat_peer_close_camera">对方关闭了摄像头</string>
+    <string name="avchat_local_close_camera">你关闭了摄像头</string>
+    <string name="avchat_audio_to_video_wait">正在等待对方开启摄像头…</string>
+    <string name="avchat_no_pick_up">未接听</string>
+    <string name="avchat_has_hangup">已挂断</string>
+    <string name="avchat_switch_video_reject">对方不同意音频切换为视频！</string>
+    <string name="avchat_notification">正在与%1$s通话中，点击继续</string>
+    <string name="avchat_call">网络通话</string>
+    <string name="avchat_no_pickup_call">未接听</string>
+    <string name="avchat_call_failed">发起通话失败</string>
+    <string name="avchat_no_permission">暂无权限，请开通音视频服务</string>
+    <string name="avchat_in_switch">请耐心等待！</string>
+
+
+    <string name="snapchat_longclick_to_view">按住查看</string>
+
+
+    <!-- 多端在线类型 -->
+    <string name="on_line">在线</string>
+    <string name="on_line_pc">PC在线</string>
+    <string name="on_line_mac">Mac在线</string>
+    <string name="on_line_web">web在线</string>
+    <string name="client_aos">Android</string>
+    <string name="client_ios">iOS</string>
+    <string name="on_line_busy">忙碌</string>
+    <string name="off_line">离线</string>
 </resources>

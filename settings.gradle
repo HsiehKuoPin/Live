@@ -1,1 +1,1 @@
-include ':app', ':push', ':benjamin'
+include ':app', ':push', ':benjamin',':uikit', ':avchatkit'

@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.appTargetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        renderscriptTargetApi rootProject.ext.compileSdkVersion
+        renderscriptSupportModeEnabled true
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res', 'res-ptr2', 'res-chatroom']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.appSourceCompatibility
+        targetCompatibility rootProject.ext.appTargetCompatibility
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    api 'me.everything:overscroll-decor-android:1.0.4'
+    api "me.leolin:ShortcutBadger:1.1.17@aar"
+
+    api 'com.github.bumptech.glide:glide:4.2.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+    api 'jp.wasabeef:glide-transformations:3.0.1'
+    //api 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1' // if you want to use the Glide GPU Filters
+
+    compile 'com.alibaba:fastjson:1.2.30'
+
+    // 添加依赖。注意，版本号必须一致。
+    // 基础功能 (必需)
+    compile 'com.netease.nimlib:basesdk:5.0.0'
+    // 音视频和互动白板服务需要
+//    compile 'com.netease.nimlib:nrtc:4.4.0'
+    // 音视频需要
+//    compile 'com.netease.nimlib:avchat:4.4.0'
+    // 聊天室需要
+    compile 'com.netease.nimlib:chatroom:4.4.0'
+    // 互动白板服务需要
+    compile 'com.netease.nimlib:rts:4.4.0'
+    // 全文检索服务需要
+    compile 'com.netease.nimlib:lucene:4.4.0'
+
+}

@@ -6,14 +6,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.alibaba.fastjson.JSON;
 import com.benjamin.app.Global;
+import com.benjamin.utils.LogUtil;
 import com.benjamin.utils.ToastUtil;
 import com.live.gblive.R;
 import com.live.gblive.base.MvpActivity;
+import com.live.gblive.nim.DemoCache;
 import com.live.gblive.ui.fragment.FollowFragment;
 import com.live.gblive.ui.fragment.HomeFragment;
 import com.live.gblive.ui.fragment.LiveFragment;
 import com.live.gblive.ui.fragment.MineFragment;
+import com.netease.nim.uikit.api.NimUIKit;
+import com.netease.nimlib.sdk.RequestCallback;
+import com.netease.nimlib.sdk.auth.LoginInfo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,13 +70,26 @@ public class MainActivity extends MvpActivity {
                 showFragment(getFollowFragment());
                 break;
             case R.id.rbMe:
+                NimUIKit.login(new LoginInfo("qq", "123456"), new RequestCallback<LoginInfo>() {
+                    @Override
+                    public void onSuccess(LoginInfo param) {
+                        LogUtil.e("LoginInfo:"+ JSON.toJSONString(param));
+                        DemoCache.setAccount(param.getAccount());
+                    }
+
+                    @Override
+                    public void onFailed(int code) {
+                        LogUtil.e("onFailed:"+code);
+                    }
+
+                    @Override
+                    public void onException(Throwable exception) {
+                        LogUtil.e("onException:"+exception.getMessage());
+                    }
+                });
                 showFragment(getMineFragment());
                 break;
         }
-    }
-
-    public void click1(View view) {
-        ToastUtil.showShort(this, "tv1");
     }
     public void showFragment(Fragment fragment) {
         if (fragment.isVisible())return;

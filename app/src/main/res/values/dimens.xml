@@ -3,4 +3,7 @@
     <dimen name="bottom_menu_text_size">12sp</dimen>
     <dimen name="list_live_title_size">13sp</dimen>
     <dimen name="list_live_name_size">13sp</dimen>
+
+
+    <dimen name="pager_sliding_tab_strip_height">40dip</dimen>
 </resources>

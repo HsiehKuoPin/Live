@@ -37,6 +37,7 @@ android {
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -88,6 +89,12 @@ android {
             }
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-rp']
+        }
+
+    }
 }
 
 dependencies {
@@ -109,5 +116,8 @@ dependencies {
     compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     implementation project(':push')
-    implementation project(':benjamin')
+    compile 'com.github.XiegbTrue:BenjaminLib:v1.0'
+    implementation project(':uikit')
+    compile 'com.android.support:multidex:1.0.1'
+    implementation project(':avchatkit')
 }
