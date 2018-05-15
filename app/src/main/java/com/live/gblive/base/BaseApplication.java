@@ -118,19 +118,19 @@ public class BaseApplication extends MultiDexApplication {
         mPushAgent.setNotificationClickHandler(notificationClickHandler);
 
         //注册推送服务，每次调用register方法都会回调该接口
-        mPushAgent.register(new IUmengRegisterCallback() {
-
-            @Override
-            public void onSuccess(String deviceToken) {
-                //注册成功会返回device token
-                LogUtil.e("注册成功会返回deviceToken:" +deviceToken);
-            }
-
-            @Override
-            public void onFailure(String s, String s1) {
-                LogUtil.e("注册失败:" +s+","+s1);
-            }
-        });
+//        mPushAgent.register(new IUmengRegisterCallback() {
+//
+//            @Override
+//            public void onSuccess(String deviceToken) {
+//                //注册成功会返回device token
+//                LogUtil.e("注册成功会返回deviceToken:" +deviceToken);
+//            }
+//
+//            @Override
+//            public void onFailure(String s, String s1) {
+//                LogUtil.e("注册失败:" +s+","+s1);
+//            }
+//        });
     }
     private void initUiKit() {
 

@@ -43,7 +43,7 @@ public abstract class MvpActivity<P extends BasePresenter> extends BaseActivity 
         ButterKnife.bind(this);
         initView();
         initData();
-        PushAgent.getInstance(this).onAppStart();
+//        PushAgent.getInstance(this).onAppStart();
     }
 
     @Override
